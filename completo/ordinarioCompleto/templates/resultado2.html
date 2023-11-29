@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Búsqueda</title>
+</head>
+<body>
+    {% if solicitud %}
+        <h2>Resultado de Búsqueda</h2>
+        <p>Turno: {{ solicitud['Turno'] }}</p>
+        <p>Nombre del Alumno: {{ solicitud['NombreAlumno'] }}</p>
+        <p>Estatus: {{ solicitud['estatus'] }}</p>
+        <p>Trámite: {{ solicitud['Tramite'] }}</p>
+        <p>Municipio: {{ solicitud['municipio'] }}</p>
+        <p>Fecha: {{ solicitud['Fecha'] }}</p>
+    {% else %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+</body>
+</html>

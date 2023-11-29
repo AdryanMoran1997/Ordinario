@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pendiente</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Botón para volver al dashboard principal -->
+<button onclick="volverDashboard()">Volver a Resuelto</button>
+
+<canvas id="myChart" width="400" height="200"></canvas>
+
+<script src="{{ url_for('static', filename='dashboard_pendiente.js') }}"></script>
+
+
+</body>
+</html>

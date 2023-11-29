@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_menu.css') }}">
+    <title>Barra de Navegación</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('registro_login') }}">Inicio</a>
+        <a href="{{ url_for('busqueda_curp') }}">Busqueda Solicitud</a>
+        <a href="{{ url_for('nueva_pagina_tramite') }}">Tramites</a>
+        <a href="{{ url_for('nueva_pagina') }}">Municipios</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('registro_login') }}">Salir</a>
+    </nav>
+</body>
+</html>

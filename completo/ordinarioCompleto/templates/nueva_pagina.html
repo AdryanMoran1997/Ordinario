@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_municipio.css') }}">
+</head>
+<body>
+
+<h1>Crud Municipios</h1>
+<a href="{{ url_for('registro_login') }}">Cerrar Sesión</a>
+<!-- Formulario para agregar municipio -->
+<form action="/agregar_municipio" method="post">
+    <label for="municipio">Municipio:</label>
+    <input type="text" name="municipio" required>
+    <button type="submit">Agregar</button>
+</form>
+
+<!-- Tabla de municipios -->
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Municipio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for municipio in municipios %}
+        <tr>
+            <td>{{ municipio.idmunicipio }}</td>
+            <td>{{ municipio.municipio }}</td>
+            <td>
+                <form action="/actualizar_municipio" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="{{ municipio.idmunicipio }}">
+                    <input type="text" name="municipio" required>
+                    <button type="submit">Actualizar</button>
+                </form>
+                <a href="/eliminar/{{ municipio.idmunicipio }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script src="{{ url_for('static', filename='validacion_Municipios.js') }}"></script>
+
+</body>
+</html>

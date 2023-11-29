@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario Login</title>
+    <link rel="stylesheet" href="/static/style_login.css">
+  </head>
+  <body>
+    <section class="form-login">
+      <h5>Formulario Login</h5>
+      <form action="/iniciar_sesion" method="post">
+        <input class="controls" type="text" name="usuario" value="" placeholder="Usuario">
+        <input class="controls" type="password" name="contrasena" value="" placeholder="Contraseña">
+        <button class="buttons" type="submit">Ingresar</button>
+      </form>
+      <script src="{{ url_for('static', filename='validacion_log.js') }}"></script>
+    </section>
+  </body>
+</html>
