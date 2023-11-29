@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_registro_login.css') }}">
+    <title>Formulario Registro</title>
+</head>
+<body>
+    <section class="form-register">
+        <h4>Formulario Registro</h4>
+        <form method="post" action="{{ url_for('agregar') }}" id="registroForm">
+            <input class="controls" type="text" name="usuario" id="usuario" placeholder="Ingrese el nuevo usuario" required>
+            <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese la contraseña" required>
+            <input class="controls" type="text" name="nombre" placeholder="Ingrese el Nombre" required>
+            <input class="controls" type="text" name="paterno" placeholder="Ingrese el Apellido Paterno" required>
+            <input class="controls" type="text" name="materno" placeholder="Ingrese el Apellido Materno" required>
+            <input class="controls" type="text" name="telefono" id="telefono" placeholder="Ingrese el teléfono" required>
+            <input class="botons" type="submit" value="Registrar">
+            <p class="warnings" id="warnings"></p>
+        </form>
+        <p><a href="{{ url_for('login_form') }}">¿Ya tienes cuenta?</a></p>
+    </section>
+    <script src="{{ url_for('static', filename='validacion_RLG.js') }}"></script>
+</body>
+</html>
