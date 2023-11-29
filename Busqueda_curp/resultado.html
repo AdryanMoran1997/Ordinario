@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de la Búsqueda</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_resultado.css') }}">
+</head>
+<body>
+    {% if mensaje %}
+        <p class="message success">{{ mensaje }}</p>
+    {% else %}
+        <h2>Información del Alumno</h2>
+        <p>Nombre: {{ alumno[2] }} {{ alumno[3] }} {{ alumno[4] }}</p>
+        <p>Teléfono: {{ alumno[5] }}</p>
+
+        <h2>Información de la Solicitud</h2>
+        <p>Turno: {{ solicitud[1] }}</p>
+        <p>Fecha: {{ solicitud[6] }}</p>
+        <p>Estatus: {{ solicitud[7] }}</p>
+        <p>Trámite: {{ solicitud[8] }}</p>
+        <p>Municipio: {{ solicitud[9] }}</p>
+
+        <h2>Editar Información</h2>
+        <form method="post" action="{{ url_for('actualizar_solicitud', id_alumno=alumno[0]) }}">
+            <label for="nuevo_nombre">Nuevo Nombre:</label>
+            <input type="text" id="nuevo_nombre" name="nuevo_nombre" value="{{ alumno[2] }}" required><br>
+
+            <label for="nuevo_paterno">Nuevo Paterno:</label>
+            <input type="text" id="nuevo_paterno" name="nuevo_paterno" value="{{ alumno[3] }}" required><br>
+
+            <label for="nuevo_materno">Nuevo Materno:</label>
+            <input type="text" id="nuevo_materno" name="nuevo_materno" value="{{ alumno[4] }}" required><br>
+
+            <label for="nuevo_telefono">Nuevo Teléfono:</label>
+            <input type="text" id="nuevo_telefono" name="nuevo_telefono" value="{{ alumno[5] }}" required><br>
+
+            <label for="nuevo_turno">Nuevo Turno:</label>
+            <input type="text" id="nuevo_turno" name="nuevo_turno" value="{{ solicitud[1] }}" required><br>
+
+            <label for="nueva_fecha">Nueva Fecha:</label>
+            <input type="text" id="nueva_fecha" name="nueva_fecha" value="{{ solicitud[6] }}" required><br>
+
+            <label for="nuevo_estatus">Nuevo Estatus:</label>
+            <select id="nuevo_estatus" name="nuevo_estatus" required>
+                {% for estatus in estatus_values %}
+                    <option value="{{ estatus }}" {% if estatus == solicitud[7] %}selected{% endif %}>{{ estatus }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="nuevo_municipio">Nuevo Municipio:</label>
+            <select id="nuevo_municipio" name="nuevo_municipio" required>
+                {% for municipio in municipio_values %}
+                    <option value="{{ municipio }}" {% if municipio == solicitud[9] %}selected{% endif %}>{{ municipio }}</option>
+                {% endfor %}
+            </select><br>
+            
+            <button type="submit">Actualizar</button>
+        </form>
+        <p id="mensaje-actualizacion"></p>
+
+
+        <h2>Eliminar Registro</h2>
+        <form method="post" action="{{ url_for('eliminar_solicitud', id_alumno=alumno[0]) }}" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?')">
+            <button type="submit">Eliminar</button>
+        </form>
+
+
+    {% endif %}
+    
+</body>
+</html>
