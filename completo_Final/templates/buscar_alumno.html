@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Alumno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_BA.css') }}">
+</head>
+<body>
+    <h1>Buscar Alumno por CURP</h1>
+    
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    
+    <form method="post" action="/buscar_alumno">
+        <label for="curp">CURP:</label>
+        <input type="text" id="curp" name="curp" required>
+        <br>
+        <button type="submit">Buscar y Descargar</button>
+    </form>
+</body>
+</html>

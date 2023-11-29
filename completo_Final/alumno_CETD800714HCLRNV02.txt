@@ -1,0 +1,7 @@
+Nombre: juan
+Paterno: Cruz
+Materno: Perez
+Teléfono: 1234567890
+Municipio: 17
+Nivel de Curso: 4
+Trámite: 11

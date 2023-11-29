@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Alumno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_estuanteR.css') }}">
+</head>
+<body>
+    <h1>Registro de Alumno</h1>
+    <form action="{{ url_for('registrar_alumno') }}" method="post" onsubmit="return validarFormulario()">
+        <label for="curp">CURP:</label>
+        <input type="text" name="curp" id="curp" required>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required>
+
+        <label for="paterno">Apellido Paterno:</label>
+        <input type="text" name="paterno" id="paterno" required>
+
+        <label for="materno">Apellido Materno:</label>
+        <input type="text" name="materno" id="materno" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" name="telefono" id="telefono" required>
+
+        <label for="municipio">Municipio:</label>
+        <select name="municipio" id="municipio" required>
+            {% for id, nombre in municipios %}
+                <option value="{{ id }}">{{ nombre }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="nivel_curso">Nivel de Curso:</label>
+        <select name="nivel_curso" id="nivel_curso" required>
+            {% for id, nombre in niveles_curso %}
+                <option value="{{ id }}">{{ nombre }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="tramite">Trámite:</label>
+        <select name="tramite" id="tramite" required>
+            {% for id, nombre in tramites %}
+                <option value="{{ id }}">{{ nombre }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Registrar Alumno</button>
+    </form>
+    <script src="{{ url_for('static', filename='validacion_STD.js') }}"></script>
+    <a href="{{ url_for('buscar_alumno') }}">busqueda</a>
+
+</body>
+</html>

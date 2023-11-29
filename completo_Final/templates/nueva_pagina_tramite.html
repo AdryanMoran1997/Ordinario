@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Trámite</title>
+    <link rel="stylesheet" href="/static/style_tramite.css">
+</head>
+<body>
+
+<h1>CRUD Trámite</h1>
+<a href="{{ url_for('registro_login') }}">Cerrar Sesión</a>
+<!-- Formulario para agregar un nuevo trámite -->
+<form method="POST" action="/agregar_tramite">
+    <label for="tramite">Trámite:</label>
+    <input type="text" name="tramite" required>
+    <button type="submit">Agregar</button>
+</form>
+
+<!-- Tabla para mostrar los trámites -->
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Trámite</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tramite in tramites %}
+        <tr>
+            <td>{{ tramite.idTramite }}</td>
+            <td>{{ tramite.Tramite }}</td>
+            <td>
+                <form method="POST" action="/actualizar_tramite" style="display:inline;">
+                    <input type="hidden" name="id" value="{{ tramite.idTramite }}">
+                    <input type="text" name="tramite" value="" required>
+                    <button type="submit">Actualizar</button>
+                </form>
+                <a href="/eliminar_tramite/{{ tramite.idTramite }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script src="{{ url_for('static', filename='validacion_Municipios.js') }}"></script>
+
+</body>
+</html>
+

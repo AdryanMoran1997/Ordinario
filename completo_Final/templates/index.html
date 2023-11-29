@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Solicitud</title>
+</head>
+<body>
+    <h1>Buscar Solicitud por CURP</h1>
+    <form method="POST">
+        <label for="curp">Ingrese CURP:</label>
+        <input type="text" id="curp" name="curp" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if mensaje_error %}
+        <p style="color: red;">{{ mensaje_error }}</p>
+    {% endif %}
+</body>
+</html>

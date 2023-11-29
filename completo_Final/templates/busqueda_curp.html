@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Búsqueda por CURP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_busquedaC.css') }}">
+</head>
+<body>
+    <h1>Formulario de Búsqueda por CURP</h1>
+
+    <form action="{{ url_for('busqueda_curp_form') }}" method="post" onsubmit="return validarCURP()">
+        <label for="curp">Ingrese CURP:</label>
+        <input type="text" id="curp" name="curp" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='validacion_curp.js') }}"></script>
+</body>
+</html>

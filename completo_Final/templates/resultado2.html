@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de la Búsqueda</title>
+</head>
+<body>
+    <h1>Resultado de la Búsqueda</h1>
+
+    {% if solicitud %}
+        <p>Información de la Solicitud:</p>
+        <ul>
+            <li><strong>Nombre:</strong> {{ solicitud[8] }} {{ solicitud[9] }} {{ solicitud[10] }}</li>
+            <li><strong>Turno:</strong> {{ solicitud[1] }}</li>
+            <li><strong>Fecha:</strong> {{ solicitud[6] }}</li>
+        </ul>
+        
+        <p>Puedes personalizar este formato según tus necesidades.</p>
+
+        <form method="POST" action="/descargar_solicitud">
+            <input type="hidden" name="curp" value="{{ solicitud[4] }}">
+           
